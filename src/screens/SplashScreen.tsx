@@ -33,7 +33,7 @@ export default function SplashScreen() {
 
   const animatedWidth = loadingWidth.interpolate({
     inputRange: [0, 1],
-    outputRange: ["0%", "100%"],
+    outputRange: [0, 80],
   });
 
   return (
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   loadingBar: {
-    height: "100%",
+    height: 2,
     borderRadius: 1,
   },
   loadingText: {
