@@ -1,30 +1,45 @@
-# BookBot — React Native + Expo + Convex
+# SnapBook — React Native + Expo + Convex
 
 ## Project Overview
-BookBot is a mobile application built with React Native (Expo) for the frontend and Convex for the backend. It is deployed via Expo Application Services (EAS).
+SnapBook is a photobook printing mobile app for the Philippine market. Built with React Native (Expo) for the frontend and Convex for the backend. Deployed via Expo Application Services (EAS).
+
+**Tagline:** "Print Your Memories"
+**Design philosophy:** Warmth first (cozy café feel), Photo-centric, Filipino-native (GCash, COD, barangay addresses)
 
 ## Tech Stack
 - **Frontend:** React Native 0.81, Expo SDK 54, TypeScript 5.9
 - **Backend:** Convex (serverless database, real-time queries, mutations, actions)
-- **Navigation:** React Navigation (to be installed)
-- **Styling:** React Native StyleSheet with theme constants in `src/constants/theme.ts`
+- **Navigation:** React Navigation (native stack)
+- **Fonts:** Playfair Display (headlines), DM Sans (body/UI)
+- **Styling:** React Native StyleSheet with espresso theme in `src/constants/theme.ts`
 - **Deployment:** Expo / EAS Build + EAS Update
+
+## Brand Design System
+- **Light palette:** Espresso #2C1810, Mocha #5C3423, Caramel #B5621E (primary), Toffee #D4855A, Latte #F2E8DC, Cream #FAF4EC
+- **Dark palette:** Dark Roast #0D0806, Deep Brew #160D08, Roasted #2A1710, Toffee #D4855A, Latte #C4A08A, Steamed #F5E6D3
+- **Typography:** Playfair Display Bold (display/headlines), DM Sans 400 (body), DM Sans 600 (UI labels/buttons)
+
+## App Flow
+```
+Splash (1.2s) → Onboarding (3 steps, new users) → Auth (Login/Sign Up) → Home
+              → Home (returning users, via AsyncStorage check)
+```
 
 ## Project Structure
 ```
-BookBot/
-├── App.tsx                  # Root component with ConvexProvider
+SnapBook/
+├── App.tsx                  # Root: fonts, NavigationContainer, RootNavigator
 ├── convex/                  # Convex backend
 │   ├── schema.ts            # Database schema
 │   ├── books.ts             # Queries & mutations for books
 │   └── tsconfig.json        # Convex TS config
 ├── src/
-│   ├── screens/             # Screen components (one file per screen)
-│   ├── components/          # Reusable UI components
-│   ├── navigation/          # React Navigation setup
-│   ├── hooks/               # Custom hooks
-│   ├── constants/           # Theme, config, constants
-│   └── types/               # Shared TypeScript types
+│   ├── screens/             # SplashScreen, OnboardingScreen, AuthScreen, HomeScreen
+│   ├── components/          # Button, TextInput, PageIndicator, SegmentedControl, SocialButton
+│   ├── navigation/          # RootNavigator (native stack)
+│   ├── hooks/               # useTheme, useConvex
+│   ├── constants/           # theme (espresso palette), storage keys
+│   └── types/               # navigation params, theme types
 ├── assets/                  # Images, fonts, icons
 ├── .claude/agents/          # Claude agent definitions
 └── app.json                 # Expo config
