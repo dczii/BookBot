@@ -2,10 +2,15 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
+import { ConvexProvider, ConvexReactClient } from "convex/react";
 import { useFonts, PlayfairDisplay_700Bold } from "@expo-google-fonts/playfair-display";
 import { DMSans_400Regular, DMSans_600SemiBold } from "@expo-google-fonts/dm-sans";
 import RootNavigator from "./src/navigation/RootNavigator";
 import { Colors } from "./src/constants/theme";
+
+const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL!, {
+  unsavedChangesWarning: false,
+});
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,10 +24,12 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <RootNavigator />
-      <StatusBar style="dark" />
-    </NavigationContainer>
+    <ConvexProvider client={convex}>
+      <NavigationContainer>
+        <RootNavigator />
+        <StatusBar style="dark" />
+      </NavigationContainer>
+    </ConvexProvider>
   );
 }
 
