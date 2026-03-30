@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "BookBot",
-    "slug": "BookBot",
+    "slug": "bookbot",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7b415b50-7890-4723-adc1-0e6f20c9cdc7"
+      }
+    },
+    "owner": "dczii"
   }
 }
