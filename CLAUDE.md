@@ -74,9 +74,25 @@ npx convex deploy  # Deploy Convex to production
 ```
 
 ## Claude Agents
-This project includes 5 specialized Claude agents in `.claude/agents/`:
-1. **frontend.md** — React Native screens, components, navigation
-2. **backend.md** — Convex schema, queries, mutations, actions
-3. **design.md** — UI/UX, theming, styling, accessibility
-4. **testing.md** — Unit tests, integration tests, E2E
-5. **devops.md** — EAS builds, deployments, CI/CD, environment config
+This project includes 7 specialized Claude agents in `.claude/agents/`:
+
+### Orchestration
+1. **project-manager.md** — Senior PM that breaks down features, assigns tasks to all agents, defines execution order, and tracks progress. Start here for any new feature.
+
+### Implementation
+2. **frontend.md** — React Native screens, components, navigation
+3. **backend.md** — Convex schema, queries, mutations, actions
+4. **design.md** — UI/UX, theming, styling, accessibility
+
+### Quality
+5. **code-reviewer.md** — Reviews frontend and backend code for correctness, security, performance, and convention adherence
+6. **testing.md** — Unit tests, integration tests, E2E
+
+### Infrastructure
+7. **devops.md** — EAS builds, deployments, CI/CD, environment config
+
+### Agent Pipeline
+For any new feature, the Project Manager orchestrates this pipeline:
+```
+Backend → Design → Frontend → Code Review → Testing → DevOps
+```
